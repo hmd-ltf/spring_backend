@@ -9,7 +9,7 @@ public enum TaskStatuses {
     WORKING("W", "Working"),
     COMPLETED("C", "Completed"),
     FAILED("F", "Failed"),
-    RETRY("R", "Pending");
+    RETRY("R", "Retry");
 
     private final String code;
     private final String details;

@@ -1,6 +1,7 @@
 package com.geeks.danda.controllers;
 
 import com.geeks.danda.models.TaskDetails;
+import com.geeks.danda.requests.CreateTask;
 import com.geeks.danda.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +17,13 @@ public class TaskController {
 
 
     @GetMapping
-    public List<TaskDetails> findAllProducts() {
+    public List<TaskDetails> findAllTasks() {
         return taskService.getAllTasks();
     }
 
     @PostMapping
-    public TaskDetails addProduct(@RequestBody TaskDetails taskDetails) {
-        return taskService.createTask(taskDetails);
+    public TaskDetails createTask(@RequestBody CreateTask createTask) {
+        return taskService.createTask(createTask);
     }
 
 }

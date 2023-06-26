@@ -3,6 +3,7 @@ package com.geeks.danda.models;
 import com.geeks.danda.constants.TaskStatuses;
 
 import java.sql.Date;
+import java.time.Duration;
 import java.util.List;
 
 public class TaskDetails {
@@ -20,6 +21,10 @@ public class TaskDetails {
     private Date startedAt;
 
     private Date deadLine;
+
+    private Duration timeEstimation;
+
+    private Duration remainingTime;
 
     private List<TaskTimeDetails> taskTimeDetails;
 
@@ -87,6 +92,22 @@ public class TaskDetails {
         this.taskTimeDetails = taskTimeDetails;
     }
 
+    public Duration getTimeEstimation() {
+        return timeEstimation;
+    }
+
+    public void setTimeEstimation(Duration timeEstimation) {
+        this.timeEstimation = timeEstimation;
+    }
+
+    public Duration getRemainingTime() {
+        return remainingTime;
+    }
+
+    public void setRemainingTime(Duration remainingTime) {
+        this.remainingTime = remainingTime;
+    }
+
     @Override
     public String toString() {
         return "TaskDetails{" +
@@ -97,6 +118,8 @@ public class TaskDetails {
                 ", createdAt=" + createdAt +
                 ", startedAt=" + startedAt +
                 ", deadLine=" + deadLine +
+                ", timeEstimation=" + timeEstimation +
+                ", remainingTime=" + remainingTime +
                 ", taskTimeDetails=" + taskTimeDetails +
                 '}';
     }

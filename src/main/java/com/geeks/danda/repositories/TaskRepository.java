@@ -3,6 +3,8 @@ package com.geeks.danda.repositories;
 import com.geeks.danda.models.TaskDetails;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class TaskRepository {
 
     public void save(TaskDetails taskDetail) {
         taskDetail.setId(taskDetailsList.size());
+        taskDetail.setCreatedAt(Date.valueOf(LocalDate.now()));
         taskDetailsList.add(taskDetail);
     }
 
