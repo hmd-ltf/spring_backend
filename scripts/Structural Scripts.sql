@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS b_statuses (
     id      SERIAL,
-    code    VARCHAR(32) PRIMARY KEY,
+    code    VARCHAR(3) PRIMARY KEY,
     name    VARCHAR(255),
     details VARCHAR(255)
     );
 
 CREATE TABLE IF NOT EXISTS b_roles (
     id      SERIAL,
-    code    VARCHAR(32) PRIMARY KEY,
+    code    VARCHAR(3) PRIMARY KEY,
     name    VARCHAR(255),
     details VARCHAR(255)
     );
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     id             SERIAL PRIMARY KEY,
     name           VARCHAR(255) NOT NULL,
     details        TEXT,
-    status         VARCHAR(32),
+    status         VARCHAR(3),
     estimated_time INTERVAL,
     remaining_time INTERVAL,
     deadline       TIMESTAMP,
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS user_tasks (
     id      SERIAL PRIMARY KEY,
     task_id INT,
     user_id INT,
-    role    VARCHAR(32),
+    role    VARCHAR(3),
 
     CONSTRAINT fk_task_id FOREIGN KEY (task_id) REFERENCES tasks (id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (id),
