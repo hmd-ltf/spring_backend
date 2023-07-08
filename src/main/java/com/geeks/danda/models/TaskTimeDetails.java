@@ -4,21 +4,11 @@ import java.sql.Date;
 
 public class TaskTimeDetails {
 
-    private int id;
-
     private int taskId;
 
     private Date startAt;
 
     private Date endAt;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getTaskId() {
         return taskId;
@@ -47,8 +37,7 @@ public class TaskTimeDetails {
     @Override
     public String toString() {
         return "TaskTimeDetails{" +
-                "id=" + id +
-                ", taskId=" + taskId +
+                " taskId=" + taskId +
                 ", startAt=" + startAt +
                 ", endAt=" + endAt +
                 '}';

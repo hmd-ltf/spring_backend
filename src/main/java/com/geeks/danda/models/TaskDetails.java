@@ -8,8 +8,6 @@ import java.util.List;
 
 public class TaskDetails {
 
-    private int id;
-
     private String name;
 
     private String details;
@@ -27,14 +25,6 @@ public class TaskDetails {
     private Duration remainingTime;
 
     private List<TaskTimeDetails> taskTimeDetails;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -111,8 +101,7 @@ public class TaskDetails {
     @Override
     public String toString() {
         return "TaskDetails{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                " name='" + name + '\'' +
                 ", details='" + details + '\'' +
                 ", taskStatus=" + taskStatus +
                 ", createdAt=" + createdAt +
