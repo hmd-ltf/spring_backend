@@ -15,7 +15,4 @@ public class TaskTimeDetails {
 
     private Date endAt;
 
-    public int getTaskId() {
-        return taskId;
-    }
 }
