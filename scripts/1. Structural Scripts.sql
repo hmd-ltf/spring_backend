@@ -19,6 +19,14 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255)        NOT NULL
     );
 
+CREATE TABLE IF NOT EXISTS users (
+     id       SERIAL PRIMARY KEY,
+     user_id VARCHAR(255) UNIQUE NOT NULL,
+     revoked BOOLEAN DEFAULT false,
+
+     CONSTRAINT fk_token_user_id FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
     id      SERIAL PRIMARY KEY,
     name    VARCHAR(255) UNIQUE NOT NULL,
