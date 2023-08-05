@@ -5,11 +5,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Users {
+public class Organization {
 
-    private String userName;
+    private String name;
 
-    private String password;
+    private String address;
 
     private String email;
 }
