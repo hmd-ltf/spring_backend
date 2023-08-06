@@ -20,31 +20,18 @@ public class TaskRepository {
     public TaskDetails findTaskById(int id) {
         TaskDetails taskDetail = null;
 
-        for (TaskDetails details : taskDetailsList) {
-            if (details.getId() == id) {
-                taskDetail = details;
-            }
-        }
-
         return taskDetail;
     }
 
     public void save(TaskDetails taskDetail) {
-        taskDetail.setId(taskDetailsList.size());
         taskDetail.setCreatedAt(Date.valueOf(LocalDate.now()));
         taskDetailsList.add(taskDetail);
-    }
-
-    public void delete(int id) {
-        taskDetailsList.removeIf(x -> x.getId() == id);
     }
 
     public TaskDetails update(TaskDetails taskDetails) {
         TaskDetails newTaskDetails = null;
 
         if (taskDetails != null) {
-            newTaskDetails = findTaskById(taskDetails.getId());
-
             if (taskDetails.getName() != null) {
                 newTaskDetails.setName(taskDetails.getName());
             }
