@@ -12,8 +12,8 @@ public class UsersDAO {
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public UsersDAO() {
-        this.jdbcTemplate = new JdbcTemplate();
+    public UsersDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public boolean createUser(User user) {
