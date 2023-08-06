@@ -1,4 +1,4 @@
-package com.geeks.danda.repositories;
+package com.geeks.danda.DAO;
 
 import com.geeks.danda.models.TaskDetails;
 import org.springframework.stereotype.Repository;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class TaskRepository {
+public class TasksDAO {
 
     private final List<TaskDetails> taskDetailsList = new ArrayList<>();
 
@@ -17,11 +17,6 @@ public class TaskRepository {
         return taskDetailsList;
     }
 
-    public TaskDetails findTaskById(int id) {
-        TaskDetails taskDetail = null;
-
-        return taskDetail;
-    }
 
     public void save(TaskDetails taskDetail) {
         taskDetail.setCreatedAt(Date.valueOf(LocalDate.now()));
