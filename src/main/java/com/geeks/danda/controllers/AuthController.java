@@ -2,7 +2,7 @@ package com.geeks.danda.controllers;
 
 
 import com.geeks.danda.models.User;
-import com.geeks.danda.requests.RegisterUser;
+import com.geeks.danda.models.requests.RegisterUser;
 import com.geeks.danda.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.geeks.danda.responses;
+package com.geeks.danda.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

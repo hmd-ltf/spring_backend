@@ -2,7 +2,7 @@ package com.geeks.danda.service;
 
 import com.geeks.danda.DAO.UsersDAO;
 import com.geeks.danda.models.User;
-import com.geeks.danda.requests.RegisterUser;
+import com.geeks.danda.models.requests.RegisterUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

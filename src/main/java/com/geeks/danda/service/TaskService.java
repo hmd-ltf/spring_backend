@@ -3,7 +3,7 @@ package com.geeks.danda.service;
 import com.geeks.danda.constants.TaskStatuses;
 import com.geeks.danda.models.TaskDetails;
 import com.geeks.danda.DAO.TasksDAO;
-import com.geeks.danda.requests.CreateTask;
+import com.geeks.danda.models.requests.CreateTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

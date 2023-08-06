@@ -17,30 +17,9 @@ public class TasksDAO {
         return taskDetailsList;
     }
 
-
     public void save(TaskDetails taskDetail) {
         taskDetail.setCreatedAt(Date.valueOf(LocalDate.now()));
         taskDetailsList.add(taskDetail);
     }
 
-    public TaskDetails update(TaskDetails taskDetails) {
-        TaskDetails newTaskDetails = null;
-
-        if (taskDetails != null) {
-            if (taskDetails.getName() != null) {
-                newTaskDetails.setName(taskDetails.getName());
-            }
-            if (taskDetails.getDetails() != null) {
-                newTaskDetails.setDetails(taskDetails.getDetails());
-            }
-            if (taskDetails.getTaskStatus() != null) {
-                newTaskDetails.setTaskStatus(taskDetails.getTaskStatus());
-            }
-            if (taskDetails.getDeadLine() != null) {
-                newTaskDetails.setDeadLine(taskDetails.getDeadLine());
-            }
-        }
-
-        return newTaskDetails;
-    }
 }
