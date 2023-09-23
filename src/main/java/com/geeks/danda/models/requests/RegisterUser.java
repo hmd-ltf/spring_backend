@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class RegisterUser {
 
     @JsonProperty("user_name")
-    private String userName;
+    private String username;
 
     @JsonProperty("email")
     private String email;

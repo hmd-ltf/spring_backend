@@ -1,4 +1,4 @@
-package com.geeks.danda.DAO;
+package com.geeks.danda.repositories;
 
 import com.geeks.danda.models.TaskDetails;
 import org.springframework.stereotype.Repository;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class TasksDAO {
+public class TasksRepository {
 
     private final List<TaskDetails> taskDetailsList = new ArrayList<>();
 

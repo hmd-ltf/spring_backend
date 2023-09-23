@@ -12,22 +12,22 @@ public enum TaskStatuses {
     RETRY("R", "Retry");
 
     private final String code;
-    private final String details;
+    private final String status;
 
-    TaskStatuses(String code, String details) {
+    TaskStatuses(String code, String status) {
         this.code = code;
-        this.details = details;
+        this.status = status;
     }
 
     public TaskStatuses getStatus(String code) {
-        return Arrays.stream(TaskStatuses.values()).filter(task -> code.equals(task.getCode()) || code.equals(task.getDetails())).findFirst().orElse(null);
+        return Arrays.stream(TaskStatuses.values()).filter(task -> code.equals(task.code()) || code.equals(task.status())).findFirst().orElse(null);
     }
 
-    public String getCode() {
+    public String code() {
         return this.code;
     }
 
-    public String getDetails() {
-        return this.details;
+    public String status() {
+        return this.status;
     }
 }

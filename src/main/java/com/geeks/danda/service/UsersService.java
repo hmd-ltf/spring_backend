@@ -1,6 +1,6 @@
 package com.geeks.danda.service;
 
-import com.geeks.danda.DAO.UsersDAO;
+import com.geeks.danda.repositories.UsersRepository;
 import com.geeks.danda.models.User;
 import com.geeks.danda.models.requests.RegisterUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsersService {
 
-    private final UsersDAO usersDAO;
+    private final UsersRepository usersRepository;
 
     @Autowired
-    public UsersService(UsersDAO usersDAO) {
-        this.usersDAO = usersDAO;
+    public UsersService(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
     }
 
     public User createUser(RegisterUser userRequest) {
@@ -23,11 +23,11 @@ public class UsersService {
         if (userRequest != null) {
             user = new User();
 
-            user.setUserName(userRequest.getUserName());
+            user.setUsername(userRequest.getUsername());
             user.setPassword(userRequest.getPassword());
             user.setEmail(userRequest.getEmail());
 
-            userCreated = usersDAO.createUser(user);
+            userCreated = usersRepository.createUser(user);
         }
 
         if (!userCreated) {
@@ -35,5 +35,9 @@ public class UsersService {
         }
 
         return user;
+    }
+
+    public User fetchUserByUserName(String userName) {
+        return usersRepository.findUserByUserName(userName);
     }
 }
