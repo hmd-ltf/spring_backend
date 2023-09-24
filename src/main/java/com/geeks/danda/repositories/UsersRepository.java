@@ -32,9 +32,14 @@ public class UsersRepository {
         return jdbcTemplate.query(FIND_USER_BY_USERNAME, new UserMapper(), name).stream().findFirst().orElse(null);
     }
 
+    public String fetchPasswordForUser(String username) {
+        String FETCH_PASSWORD_BY_NAME = "SELECT password FROM users WHERE username = ?";
+        return jdbcTemplate.queryForList(FETCH_PASSWORD_BY_NAME, String.class, username).stream().findFirst().orElse(null);
+    }
+
     public User findUserByEmail(String email) {
-        String FIND_USER_BY_USERNAME = "SELECT * FROM users WHERE email = ?";
-        return jdbcTemplate.query(FIND_USER_BY_USERNAME, new UserMapper(), email).stream().findFirst().orElse(null);
+        String FIND_USER_BY_EMAIL = "SELECT * FROM users WHERE email = ?";
+        return jdbcTemplate.query(FIND_USER_BY_EMAIL, new UserMapper(), email).stream().findFirst().orElse(null);
     }
 
 }

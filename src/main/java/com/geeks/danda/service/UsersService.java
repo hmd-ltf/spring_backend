@@ -1,19 +1,22 @@
 package com.geeks.danda.service;
 
+import com.geeks.danda.models.requests.UserLogin;
 import com.geeks.danda.repositories.UsersRepository;
 import com.geeks.danda.models.User;
 import com.geeks.danda.models.requests.RegisterUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
 
     private final UsersRepository usersRepository;
-
+    private final PasswordEncoder passwordEncoder;
     @Autowired
-    public UsersService(UsersRepository usersRepository) {
+    public UsersService(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public User createUser(RegisterUser userRequest) {
@@ -24,7 +27,7 @@ public class UsersService {
             user = new User();
 
             user.setUsername(userRequest.getUsername());
-            user.setPassword(userRequest.getPassword());
+            user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
             user.setEmail(userRequest.getEmail());
 
             userCreated = usersRepository.createUser(user);
@@ -37,7 +40,20 @@ public class UsersService {
         return user;
     }
 
-    public User fetchUserByUserName(String userName) {
-        return usersRepository.findUserByUserName(userName);
+    public User authenticateUser(UserLogin userLogin) {
+        User user = null;
+
+        if (userLogin != null) {
+            String userName = userLogin.getUserName();
+            String providedPassword = userLogin.getPassword();
+            String encodedPassword = usersRepository.fetchPasswordForUser(userName);
+
+            if (encodedPassword != null && passwordEncoder.matches(providedPassword, encodedPassword)) {
+                user = usersRepository.findUserByUserName(userLogin.getUserName());
+            }
+        }
+
+        return user;
     }
+
 }

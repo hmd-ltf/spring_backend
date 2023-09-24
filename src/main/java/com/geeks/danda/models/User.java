@@ -2,7 +2,6 @@ package com.geeks.danda.models;
 
 import com.geeks.danda.constants.Role;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +18,6 @@ public class User implements UserDetails {
 
     private String password;
 
-    @Getter
     private String email;
 
     private Role role;
