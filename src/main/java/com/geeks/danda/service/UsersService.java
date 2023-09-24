@@ -44,12 +44,12 @@ public class UsersService {
         User user = null;
 
         if (userLogin != null) {
-            String userName = userLogin.getUserName();
+            String userName = userLogin.getUsername();
             String providedPassword = userLogin.getPassword();
             String encodedPassword = usersRepository.fetchPasswordForUser(userName);
 
             if (encodedPassword != null && passwordEncoder.matches(providedPassword, encodedPassword)) {
-                user = usersRepository.findUserByUserName(userLogin.getUserName());
+                user = usersRepository.findUserByUserName(userLogin.getUsername());
             }
         }
 
