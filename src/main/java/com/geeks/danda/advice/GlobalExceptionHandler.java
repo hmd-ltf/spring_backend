@@ -11,7 +11,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ApiResponse> handleAccessDeniedException(RuntimeException e) {
+    public ResponseEntity<ApiResponse> handleRunTimeException(RuntimeException e) {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setMessage(e.getMessage());
+
+        return ResponseEntity.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).body(apiResponse);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiResponse> handleGeneralException(Exception e) {
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setMessage(e.getMessage());
 
